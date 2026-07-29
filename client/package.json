@@ -18,7 +18,7 @@
     "vite": "^8.1.5"
   },
   "dependencies": {
-    "@auth0/auth0-spa-js": "^2.24.0",
+    "@auth0/auth0-spa-js": "^2.24.1",
     "highlight.js": "^11.11.1"
   }
 }

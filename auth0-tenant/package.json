@@ -21,8 +21,8 @@
     "auth0-deploy-cli": "^8.41.0"
   },
   "devDependencies": {
-    "@auth0/actions": "^0.28.0",
-    "@biomejs/biome": "^2.5.5",
+    "@auth0/actions": "^0.29.0",
+    "@biomejs/biome": "^2.5.6",
     "@vitest/coverage-v8": "^4.1.10",
     "vitest": "^4.1.10"
   }
