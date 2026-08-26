@@ -86,7 +86,6 @@ async function callOBOFlow(accessToken) {
   // Call On-Behalf-Of (OBO) token exchange
   // POST request to http://localhost:3000/obo-flow with accessToken in body
 
-  let oboFlowResponse;
   try {
     const response = await fetch(import.meta.env.VITE_OBO_FLOW_ENDPOINT, {
       method: 'POST',
@@ -95,7 +94,11 @@ async function callOBOFlow(accessToken) {
       },
       body: JSON.stringify({ accessToken: accessToken })
     });
-    let oboFlowResponse = await response.json();
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const oboFlowResponse = await response.json();
     console.log('OBO Flow Response:', oboFlowResponse);
     return oboFlowResponse;
   } catch (error) {
