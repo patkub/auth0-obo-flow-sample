@@ -15,10 +15,10 @@
   "license": "MIT",
   "type": "module",
   "devDependencies": {
-    "vite": "^8.2.2"
+    "vite": "^8.3.0"
   },
   "dependencies": {
-    "@auth0/auth0-spa-js": "^2.24.1",
+    "@auth0/auth0-spa-js": "^2.27.0",
     "highlight.js": "^11.12.0"
   }
 }
