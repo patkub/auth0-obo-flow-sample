@@ -55,6 +55,28 @@ const apiClient = new ApiClient({
 });
 
 /**
+ * Extracts the bearer token from a request's `Authorization` header.
+ *
+ * Expects the header in the form `Authorization: Bearer <token>`. The scheme
+ * name is matched case-insensitively, per RFC 6750. This function only
+ * extracts the token; it does not validate its signature, expiry, or claims.
+ *
+ * @param {express.Request} req - The Express request object.
+ *
+ * @returns {string|null} The raw token string, or `null` if the header is
+ *   missing, uses a scheme other than `Bearer`, or has no token value.
+ */
+function getBearerToken(req) {
+  const header = req.get('authorization');
+  if (!header) return null;
+
+  const [scheme, token] = header.split(' ');
+  if (scheme?.toLowerCase() !== 'bearer' || !token) return null;
+
+  return token;
+}
+
+/**
  * Validates an access token's signature and claims against the Auth0 JSON Web Key Set (JWKS).
  * 
  * Uses {@link JWKS}) Remote JSON Web Key Set (JWKS).
@@ -129,7 +151,7 @@ const validateAccessToken = async (accessToken) => {
  * @requires process.env.AUTH0_DOWNSTREAM_API_SCOPES (optional)
  */
 app.post('/obo-flow', async (req, res) => {
-  const { accessToken } = req.body;
+  const accessToken = getBearerToken(req);
 
   if (!accessToken) {
     return res.status(400).json({ error: 'accessToken is required' });

@@ -90,12 +90,13 @@ async function callOBOFlow(accessToken) {
     const response = await fetch(import.meta.env.VITE_OBO_FLOW_ENDPOINT, {
       method: 'POST',
       headers: {
+        'Authorization': `Bearer ${accessToken}`,
         'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ accessToken: accessToken })
+      }
     });
     if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
+      const errorResponse = await response.json(); 
+      throw new Error(`HTTP error! Status: ${response.status} Body: ${JSON.stringify(errorResponse)}`);
     }
 
     const oboFlowResponse = await response.json();
