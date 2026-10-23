@@ -11,8 +11,7 @@ const app = express();
 
 // Enables CORS for all routes, but only allows requests from the specified origins
 app.use(cors({
-  origin: process.env.ALLOWED_ORIGINS?.split(','),
-  credentials: true
+  origin: process.env.ALLOWED_ORIGINS?.split(',')
 }));
 
 // Used to parse incoming JSON requests and make the data available in req.body
@@ -100,6 +99,7 @@ const validateAccessToken = async (accessToken) => {
     const { payload, protectedHeader } = await jose.jwtVerify(accessToken, JWKS, {
       issuer: `https://${process.env.AUTH0_DOMAIN}/`,
       audience: process.env.AUTH0_API_AUDIENCE,
+      algorithms: ['RS256']
     })
     // console.log('JWT is valid. Payload:', payload)
     // console.log('JWT header:', protectedHeader)

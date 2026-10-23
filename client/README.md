@@ -6,8 +6,8 @@ Auth0 sample vanilla JavaScript app which displays ID and Access tokens
 
 Reference `.env.local.example` and create `.env.local` with:
 ```bash
-# Vite Port number for the development server
-VITE_PORT=5173
+# Port number for the development server
+APP_PORT=5173
 # Auth0 tenant domain
 VITE_AUTH0_DOMAIN=
 # My App SPA CLIENT_ID

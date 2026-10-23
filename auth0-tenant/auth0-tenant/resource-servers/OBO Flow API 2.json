@@ -11,8 +11,8 @@
       "policy": "require_client_grant"
     }
   },
-  "token_lifetime": 86400,
-  "token_lifetime_for_web": 7200,
+  "token_lifetime": 3600,
+  "token_lifetime_for_web": 3600,
   "signing_alg": "RS256",
   "scopes": [
     {

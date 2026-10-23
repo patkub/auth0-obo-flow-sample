@@ -84,7 +84,7 @@ function parseJwt(token) {
 
 async function callOBOFlow(accessToken) {
   // Call On-Behalf-Of (OBO) token exchange
-  // POST request to http://localhost:3000/obo-flow with accessToken in body
+  // POST request to http://localhost:3000/obo-flow with accessToken in Authorization header
 
   try {
     const response = await fetch(import.meta.env.VITE_OBO_FLOW_ENDPOINT, {

@@ -33,6 +33,6 @@
   "client_aliases": [],
   "token_endpoint_auth_method": "none",
   "app_type": "spa",
-  "grant_types": ["authorization_code", "implicit", "refresh_token"],
+  "grant_types": ["authorization_code", "refresh_token"],
   "custom_login_page_on": true
 }
