@@ -27,18 +27,19 @@ The client sends a POST request to `http://localhost:3000/obo-flow` with accessT
 Example downstream Access Token:
 ```json
 {
-  "iss": "https://dev-8jc54ej0kls418wv.us.auth0.com/",
-  "sub": "auth0|6a5644849b95a281210f73de",
+  "iss": "https://dev-5gm1mr1z8nbmuhv7.us.auth0.com/",
+  "sub": "auth0|6985132071f9fb6d9bce29b8",
   "aud": "https://obo-flow-api-2/",
-  "iat": 1784052407,
-  "exp": 1784138807,
+  "iat": 1792770705,
+  "exp": 1792774305,
+  "scope": "read:books",
   "act": {
-    "sub": "Geht8foVugp9G0qyhTnP8tMVpDD4eLgb",
+    "sub": "Xk51p6Gr0QJGx8TS3fbfWaPjG2Aja4pD",
     "act": {
-      "sub": "iqc51Cf3AslsCjhtiANfANu2meIGG9gd"
+      "sub": "7QJm25lYoRzYk55gQzkrAHeDi4OH6Oup"
     }
   },
-  "azp": "Geht8foVugp9G0qyhTnP8tMVpDD4eLgb"
+  "azp": "Xk51p6Gr0QJGx8TS3fbfWaPjG2Aja4pD"
 }
 ```
 
