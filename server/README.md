@@ -1,6 +1,6 @@
 # server
 
-Exposes an endpoint `http://localhost:3000/obo-flow` which takes an accessToken in the body. The server uses this accessToken to get a new accessToken for the second API (downstream API).
+Exposes an endpoint `http://localhost:3000/obo-flow` which takes an accessToken in the Authorization Header. The server uses this accessToken to get a new accessToken for the second API (downstream API).
 
 # Setup
 

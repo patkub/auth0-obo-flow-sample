@@ -123,9 +123,10 @@ const validateAccessToken = async (accessToken) => {
  *
  * @route POST /obo-flow
  *
- * @param {Object} req.body
- * @param {string} req.body.accessToken - The user's original access token
- *   (e.g. issued for this API's audience). Required.
+ * @param {Object} req.headers
+ * @param {string} req.headers.authorization - Bearer token in the form
+ *   `Bearer <accessToken>`, where `<accessToken>` is the user's original
+ *   access token (e.g. issued for this API's audience). Required.
  *
  * @returns {200} JSON
  *   {
@@ -136,10 +137,11 @@ const validateAccessToken = async (accessToken) => {
  *   }
  *
  * @returns {400} JSON { error: 'accessToken is required' }
- *   Returned when accessToken is missing from the request body.
+ *   Returned when the Authorization header is missing, is not a `Bearer`
+ *   scheme, or does not include a token.
  *
  * @returns {401} JSON { error: 'Invalid accessToken' }
- *   Returned when accessToken fails validation against the Auth0 JWKS
+ *   Returned when accessToken fails validation against the Auth0 JWKS.
  *   (see {@link validateAccessToken}).
  *
  * @returns {502} JSON { error: 'Failed to exchange token' }

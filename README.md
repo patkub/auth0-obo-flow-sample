@@ -22,7 +22,7 @@ Check console output for OBO Flow Response JSON object containing downstreamAcce
 
 ## Details
 
-The client sends a POST request to `http://localhost:3000/obo-flow` with accessToken for the first API in the body. The server uses this accessToken to get a new accessToken for the second API (downstream API).
+The client sends a POST request to `http://localhost:3000/obo-flow` with accessToken for the first API in the Authorization Header. The server uses this accessToken to get a new accessToken for the second API (downstream API).
 
 Example downstream Access Token:
 ```json
