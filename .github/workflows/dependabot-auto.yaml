@@ -7,9 +7,23 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
-  generate-code:
+  metadata:
     # Only run this job for Dependabot PRs
     if: ${{ github.actor == 'dependabot[bot]' }}
+    runs-on: ubuntu-latest
+    outputs:
+      dependency-group: ${{ steps.metadata.outputs.dependency-group }}
+    steps:
+      - name: Fetch Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  npm-updates:
+    # Only run this job for npm updates
+    needs: metadata
+    if: ${{ needs.metadata.outputs.dependency-group == 'npm' }}
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -54,4 +68,4 @@ jobs:
           # from treating the PR as manually modified and stopping updates.
           # Must use dependabot-skip or skip-dependabot so that global GitHub
           # Action skip is NOT triggered.
-          commit_message: "chore(deps): [dependabot-skip] auto updates"
+          commit_message: "chore(deps): [dependabot-skip] auto npm updates"

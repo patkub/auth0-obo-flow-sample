@@ -4,11 +4,20 @@
 version: 2
 
 multi-ecosystem-groups:
-  dependencies:
+  infrastructure:
+    schedule:
+      interval: "weekly"
+  npm:
     schedule:
       interval: "weekly"
 
 updates:
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    patterns: ["*"]
+    multi-ecosystem-group: "infrastructure"
+
   # npm (Node.js) dependencies
   - package-ecosystem: "npm"
     directories:
@@ -16,10 +25,4 @@ updates:
       - "/client"
       - "/server"
     patterns: ["*"]
-    multi-ecosystem-group: "dependencies"
-
-  # GitHub Actions
-  - package-ecosystem: "github-actions"
-    directory: "/"
-    patterns: ["*"]
-    multi-ecosystem-group: "dependencies"
+    multi-ecosystem-group: "npm"
