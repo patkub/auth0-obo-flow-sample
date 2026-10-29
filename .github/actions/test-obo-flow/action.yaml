@@ -4,14 +4,9 @@ description: "Tests Auth0 OBO Flow Action"
 runs:
   using: "composite"
   steps:
-    - name: Lint
+    - name: Biome check
       shell: bash
-      run: npm run lint:check
-      working-directory: ./auth0-tenant
-    
-    - name: Format
-      shell: bash
-      run: npm run format:check
+      run: npm run check:ci
       working-directory: ./auth0-tenant
 
     - name: Run tests

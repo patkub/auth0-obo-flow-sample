@@ -10,10 +10,8 @@
   "scripts": {
     "deploy": "a0deploy import -c auth0-config.json -i auth0-tenant",
     "export": "a0deploy export -c auth0-config.json -o exported-tenant -f directory",
-    "lint": "biome lint --write --unsafe",
-    "lint:check": "biome lint",
-    "format": "biome format --write",
-    "format:check": "biome format",
+    "check": "biome check --write",
+    "check:ci": "biome check",
     "test": "vitest run --silent --coverage",
     "test:watch": "vitest --silent"
   },

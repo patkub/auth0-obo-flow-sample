@@ -1,6 +1,6 @@
 /** @import {Event, PostLoginAPI} from "@auth0/actions/post-login/v3" */
 
-import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import { onExecutePostLogin } from "../auth0-tenant/actions/obo-flow/code.js";
 

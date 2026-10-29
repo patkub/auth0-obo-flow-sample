@@ -13,10 +13,8 @@ npm install
 ```
 
 Lint
-- `npm run lint` - Lint with biome and apply changes
-- `npm run lint:check` - Check linting with biome
-- `npm run format` - Format with biome and apply changes
-- `npm run format:check` - Check formatting with biome
+- `pnpm check` - Lint with biome and apply formatting changes, safe lint fixes, and safe assist actions
+- `pnpm check:ci` - Check formatting, linting, and assist actions with biome
 
 Run tests
 - `npm run test` - Run unit tests
